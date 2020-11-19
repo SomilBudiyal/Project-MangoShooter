@@ -13,16 +13,16 @@ class Chain{
    this.chain = Constraint.create(options);
    World.add(world, this.chain);
   }
-  fly(){
+  launch(){
     this.chain.bodyA = null
    }
       
   display(){
    if(this.chain.bodyA){
-          var pointA = this.chain.bodyA.position;
+          var bodyA = this.chain.bodyA.position;
           var pointB = this.pointB;
           strokeWeight(4);
-          line(pointA.x, pointA.y, pointB.x, pointB.y);
+          line(bodyA.x, bodyA.y, pointB.x, pointB.y);
   }
  }
 }
