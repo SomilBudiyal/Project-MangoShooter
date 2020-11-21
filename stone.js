@@ -1,8 +1,8 @@
 class Stone{
   constructor(x,y,diameter){
      var option = {
-          'restitution' : 0,
-          'density' : 0.8,
+       'restitution' : 0,
+       'density' : 8,
        }
    
        this.body = Bodies.circle(x,y,diameter/2,option);

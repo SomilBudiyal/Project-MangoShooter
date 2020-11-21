@@ -2,7 +2,7 @@ class Ground{
   constructor(x,y,width,height){
       
     var option = {
-       isStatic = true       
+       isStatic : true       
     }     
 
     this.body = Bodies.rectangle(x,y,width,height,option);

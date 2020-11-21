@@ -1,11 +1,11 @@
 class Tree {
   constructor(x,y,width,height){
            
-  var options ={
-   sStatic : true, 
+  var option = {
+    isStatic : true 
    }
         
- this.body=Bodies.rectangle(x,y,width,height,options);
+ this.body=Bodies.rectangle(x,y,width,height,option);
  this.width = width;
  this.height = height;
  this.image = loadImage("Images/tree.png");
