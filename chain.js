@@ -5,12 +5,13 @@ class Chain{
           bodyA: bodyA,
           pointB: pointB,
           stiffness: 0.04,
-          length: 5
+          length: 50
      }
       
    this.pointB = pointB
       
    this.chain = Constraint.create(options);
+
    World.add(world, this.chain);
   }
   launch(){

@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -34,7 +33,7 @@ createCanvas(2200,1000);
   mango7 = new Mango(1099,870,70);
   mango8 = new Mango(1099,870,70);
     
-  chain = new Chain(stone.body,{x:140,y:700})
+  chain = new Chain(stone.body,{x:140,y:700});
 
   ground = new Ground(1100,900,2200,200);
 
@@ -43,7 +42,7 @@ createCanvas(2200,1000);
 
 function draw() {
   rectMode(CENTER);
-  background("white");
+  background("green");
 
   detectcollision(stone,mango1);
   detectcollision(stone,mango2);
@@ -66,7 +65,7 @@ function draw() {
 }
 
 function mouseDragged(){
-  Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY})
+  Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
 }
 
 function mouseReleased(){
@@ -74,14 +73,14 @@ function mouseReleased(){
 }
 
 function keypressed() {
-  if(keyCode === 32){
+  if(keyCode === "space"){
     Matter.Body.setPosition(stone.body,{x:235,y:420})
     launcher.attach(stone.body);
   }
 }
 
 function detectcollision(lstone,lmango){
-  mangoBodyPosition = lmango.body.position
+  mangoBodyPosition = lmango.body.position;
   stoneBodyPosition = lstone.body.position;
 
   var distance=dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
