@@ -1,11 +1,11 @@
 class Boy {
   constructor(x,y,width,height){
    
-  var options ={
-     isStatic : true, 
+  var option ={
+     isStatic : false, 
   }
 
-  this.body=Bodies.rectangle(x,y,width,height,options);
+  this.body=Bodies.rectangle(x,y,width,height,option);
   this.width = width;
   this.height = height;
   this.image = loadImage("Images/boy.png");

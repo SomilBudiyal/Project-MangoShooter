@@ -20,19 +20,19 @@ createCanvas(2200,1000);
 
   tree = new Tree(200,200,800,800);
 
-  boy = new Boy(300,750,200,200); 
+  boy = new Boy(500,750,200,200); 
 
   stone = new Stone(200,200,70); 
 
-  mango1 = new Mango(1099,870,70);
-  mango2 = new Mango(1099,870,70);
-  mango3 = new Mango(1099,870,70);
-  mango4 = new Mango(1099,870,70);
-  mango5 = new Mango(1099,870,70);
-  mango6 = new Mango(1099,870,70);
-  mango7 = new Mango(1099,870,70);
-  mango8 = new Mango(1099,870,70);
-    
+  mango1 = new Mango(2000,440,70);
+  mango2 = new Mango(1900,320,70);
+  mango3 = new Mango(1850,160,70);
+  mango4 = new Mango(1810,400,70);
+  mango5 = new Mango(1700,230,70);
+  mango6 = new Mango(1650,330,70);
+  mango7 = new Mango(1500,400,70);
+  mango8 = new Mango(1450,290,70);
+     
   chain = new Chain(stone.body,{x:140,y:700});
 
   ground = new Ground(1100,900,2200,200);
@@ -61,7 +61,27 @@ function draw() {
 
   chain.display();
 
-  ground.display();         
+  ground.display();       
+  
+  mango1.display();         
+  mango2.display();         
+  mango3.display();         
+  mango4.display();         
+  mango5.display();   
+  mango6.display();         
+  mango7.display();         
+  mango8.display();               
+
+
+function detectcollision(lstone,lmango){
+  mangoBodyPosition = lmango.body.position;
+  stoneBodyPosition = lstone.body.position;
+
+  var distance=dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
+  if(distance<-lmango.r + lstone.r){
+    Matter.Body.setStatic(lmango.body,false);
+  }
+ }
 }
 
 function mouseDragged(){
@@ -77,14 +97,4 @@ function keypressed() {
     Matter.Body.setPosition(stone.body,{x:235,y:420})
     launcher.attach(stone.body);
   }
-}
-
-function detectcollision(lstone,lmango){
-  mangoBodyPosition = lmango.body.position;
-  stoneBodyPosition = lstone.body.position;
-
-  var distance=dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
-  if(distance<-lmango.r + lstone.r){
-    Matter.Body.setStatic(lmango.body,false);
-  }
-}
+} 

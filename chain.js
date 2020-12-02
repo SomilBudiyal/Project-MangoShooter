@@ -2,10 +2,10 @@ class Chain{
   constructor(bodyA, pointB){
 
    var options = {
-          bodyA: bodyA,
-          pointB: pointB,
-          stiffness: 0.04,
-          length: 50
+        bodyA: bodyA,
+        pointB: pointB,
+        stiffness: 0.04,
+        length: 10                                                                 
      }
       
    this.pointB = pointB
@@ -20,10 +20,10 @@ class Chain{
       
   display(){
    if(this.chain.bodyA){
-          var bodyA = this.chain.bodyA.position;
-          var pointB = this.pointB;
-          strokeWeight(4);
-          line(bodyA.x, bodyA.y, pointB.x, pointB.y);
+      var bodyA = this.chain.bodyA.position;
+      var pointB = this.pointB;
+      strokeWeight(4);
+      line(bodyA.x, bodyA.y, pointB.x, pointB.y);
   }
  }
 }

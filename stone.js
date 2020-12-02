@@ -1,8 +1,10 @@
 class Stone{
   constructor(x,y,diameter){
      var option = {
+       isStatic : false,
        'restitution' : 1,
-       'density' : 8,
+       'friction' : 1,
+       'density' : 0.8
        }
    
        this.body = Bodies.circle(x,y,diameter/2,option);
