@@ -18,11 +18,11 @@ function preload(){
 function setup() {
 createCanvas(2300,1000);
  
-  boy = createSprite(2000,250,30,30);
-   boy.addImage(boyImage);
+  boy = createSprite(550,740,10,10); 
+  boy.scale = 0.1;
 
-  tree = createSprite(200,200,25,50);
-   tree.addImage(treeImage);
+  tree = createSprite(1990,200,25,50);
+  tree.scale = 1;
 
   engine = Engine.create();                      
   world = engine.world;
@@ -48,6 +48,10 @@ createCanvas(2300,1000);
 function draw() {
   rectMode(CENTER);
   background("green");
+
+  boy.addImage(boyImage);
+  tree.addImage(treeImage);
+
   detectcollision(stone,mango1);
   detectcollision(stone,mango2);
   detectcollision(stone,mango3);
@@ -69,8 +73,9 @@ function draw() {
   mango5.display();   
   mango6.display();         
   mango7.display();         
-  mango8.display();               
-
+  mango8.display();     
+  
+drawSprites();
 }
 
 function detectcollision(lstone,lmango){
