@@ -17,17 +17,16 @@ function preload(){
 
 function setup() {
 createCanvas(2300,1000);
- 
-  boy = createSprite(550,740,10,10); 
-  boy.scale = 0.1;
-
-  tree = createSprite(1990,200,25,50);
+  tree = createSprite(1800,200,25,20);
   tree.scale = 1;
 
-  engine = Engine.create();                      
+  engine = Engine.create();                                    
   world = engine.world;
 
   stone = new Stone(200,200,70); 
+
+  boy = createSprite(340,750,10,10); 
+  boy.scale = 0.1;
 
   mango1 = new Mango(2000,440,70);
   mango2 = new Mango(1900,320,70);
