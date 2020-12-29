@@ -11,22 +11,25 @@ var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8;
 var chain;
 
 function preload(){
-   boyImage = loadImage("Images/boy.png");
-   treeImage = loadImage("Images/tree.png");
+  boyImage = loadImage("Images/boy.png");
+
+  treeImage = loadImage("Images/tree.png");
 }
 
 function setup() {
-createCanvas(2300,1000);
-  tree = createSprite(1800,200,25,20);
-  tree.scale = 1;
 
+ createCanvas(2300,1000);
+  
+  tree = createSprite(1800,435,25,20);
+   tree.scale = 0.7;
+
+  boy = createSprite(340,790,10,10); 
+    boy.scale = 0.1;
+    
   engine = Engine.create();                                    
   world = engine.world;
 
   stone = new Stone(200,200,70); 
-
-  boy = createSprite(340,750,10,10); 
-  boy.scale = 0.1;
 
   mango1 = new Mango(2000,440,70);
   mango2 = new Mango(1900,320,70);
@@ -37,9 +40,9 @@ createCanvas(2300,1000);
   mango7 = new Mango(1500,400,70);
   mango8 = new Mango(1450,290,70);
      
-  chain = new Chain(stone.body,{x:280,y:700});
+  chain = new Chain(stone.body,{x:280,y:740});
 
-  ground = new Ground(1100,900,2200,200);
+  ground = new Ground(1100,930,22000,200);
 
   Engine.run(engine);
 }
@@ -49,6 +52,7 @@ function draw() {
   background("green");
 
   boy.addImage(boyImage);
+
   tree.addImage(treeImage);
 
   detectcollision(stone,mango1);
@@ -96,8 +100,8 @@ function mouseReleased(){
 }
     
 function keypressed() {                                                                                                                                       
-  if(keyCode === 32){
+  if(keyCode === 48){
     Matter.Body.setPosition(stone.body,{x:280,y:700})
     chain.attach(stone.body);
   }
-}                                                                                                                                                                          
+}   
