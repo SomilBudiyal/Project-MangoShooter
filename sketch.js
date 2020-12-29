@@ -1,13 +1,13 @@
-const Engine = Matter.Engine;
-const World = Matter.World;
-const Bodies = Matter.Bodies;
-const Body = Matter.Body;
-const Constraint = Matter.Constraint;
-
+const Engine = Matter.Engine;                                                                
+const World = Matter.World;                                                                
+const Bodies = Matter.Bodies;                                                                
+const Body = Matter.Body;                                                                
+const Constraint = Matter.Constraint;                                  
+            
 var engine, world;
 var boy,stone,tree,mango;
 var ground;
-var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8;
+var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9,mango10;
 var chain;
 
 function preload(){
@@ -15,7 +15,7 @@ function preload(){
 
   treeImage = loadImage("Images/tree.png");
 }
-
+       
 function setup() {
 
  createCanvas(2300,1000);
@@ -23,13 +23,13 @@ function setup() {
   tree = createSprite(1800,435,25,20);
    tree.scale = 0.7;
 
-  boy = createSprite(340,790,10,10); 
-    boy.scale = 0.1;
+  boy = createSprite(340,775,10,10); 
+   boy.scale = 0.1;
     
   engine = Engine.create();                                    
   world = engine.world;
 
-  stone = new Stone(200,200,70); 
+  stone = new Stone(280,710,70); 
 
   mango1 = new Mango(2000,440,70);
   mango2 = new Mango(1900,320,70);
@@ -39,8 +39,10 @@ function setup() {
   mango6 = new Mango(1650,330,70);  
   mango7 = new Mango(1500,400,70);
   mango8 = new Mango(1450,290,70);
+  mango9 = new Mango(2100,290,70);
+  mango10 = new Mango(2020,200,70);
      
-  chain = new Chain(stone.body,{x:280,y:740});
+  chain = new Chain(stone.body,{x:281,y:724});
 
   ground = new Ground(1100,930,22000,200);
 
@@ -50,6 +52,8 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background("green");
+
+  drawSprites();
 
   boy.addImage(boyImage);
 
@@ -63,6 +67,8 @@ function draw() {
   detectcollision(stone,mango6);
   detectcollision(stone,mango7);
   detectcollision(stone,mango8);
+  detectcollision(stone,mango9);
+  detectcollision(stone,mango10);
 
   stone.display();
 
@@ -76,16 +82,18 @@ function draw() {
   mango5.display();   
   mango6.display();         
   mango7.display();         
-  mango8.display();     
+  mango8.display();
+  mango9.display();         
+  mango10.display();   
   
-drawSprites();
+  
 }
 
 function detectcollision(lstone,lmango){
   mangoBodyPosition = lmango.body.position;
   stoneBodyPosition = lstone.body.position;
 
-  var distance=dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
+ var distance=dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
   if(distance<=lmango.diameter + lstone.diameter){
     Matter.Body.setStatic(lmango.body,false);
   }
