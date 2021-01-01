@@ -5,10 +5,16 @@ const Body = Matter.Body;
 const Constraint = Matter.Constraint;                                  
             
 var engine, world;
+
 var boy,stone,tree,mango;
+
 var ground;
+
 var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9,mango10;
+
 var chain;
+
+var gameState = "onSling";
 
 function preload(){
   boyImage = loadImage("Images/boy.png");
@@ -100,16 +106,18 @@ function detectcollision(lstone,lmango){
  }
 
 function mouseDragged(){
-  Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
+  if(gameState!=="launched"){
+    Matter.Body.setPosition(stone.body, {x: mouseX , y: mouseY});
+ }
 }
 
 function mouseReleased(){
   chain.launch();
+  gameState = "launched";
 }
     
 function keypressed() {                                                                                                                                       
-  if(keyCode === 48){
-    Matter.Body.setPosition(stone.body,{x:280,y:700})
+  if(keyCode === 32){
     chain.attach(stone.body);
   }
 }   

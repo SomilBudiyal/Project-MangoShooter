@@ -8,7 +8,7 @@ class Mango{
        'density' : 8,
     }
 
-      this.body = Bodies.circle(x,y,diameter,option) ;
+      this.body = Bodies.circle(x,y,diameter/3,option) ;
       this.diameter = diameter;
       this.image = loadImage("Images/mango.png");
       
