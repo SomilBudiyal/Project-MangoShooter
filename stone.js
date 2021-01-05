@@ -7,7 +7,7 @@ class Stone{
        'density' : 0.8
        }
    
-       this.body = Bodies.circle(x,y,diameter/2,option);
+       this.body = Bodies.circle(x,y,diameter/3,option);
        this.diameter = diameter;
        this.image = loadImage("Images/stone.png");
        

@@ -107,7 +107,7 @@ function detectcollision(lstone,lmango){
 
 function mouseDragged(){
   if(gameState!=="launched"){
-    Matter.Body.setPosition(stone.body, {x: mouseX , y: mouseY});
+    Matter.Body.setPosition(stone.body, {x:mouseX,y:mouseY});
  }
 }
 
@@ -115,9 +115,10 @@ function mouseReleased(){
   chain.launch();
   gameState = "launched";
 }
-    
-function keypressed() {                                                                                                                                       
+
+function keyPressed(){
   if(keyCode === 32){
-    chain.attach(stone.body);
+   Matter.Body.setPosition(stone.body,{x:280,y:710})
+   chain.attach(stone.body);
   }
-}   
+}

@@ -18,6 +18,10 @@ class Chain{
     this.chain.bodyA = null
    }
       
+  attach(body){
+    this.chain.bodyA = body; 
+  }
+
   display(){
    if(this.chain.bodyA){
       var bodyA = this.chain.bodyA.position;
