@@ -113,7 +113,7 @@ function mouseDragged(){
 
 function mouseReleased(){
   chain.launch();
-  gameState = "launched";
+ // gameState = "launched";
 }
 
 function keyPressed(){
